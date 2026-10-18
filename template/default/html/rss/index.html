@@ -1,0 +1,9 @@
+<rss version="2.0"><channel>
+<title>{$maccms.site_name}</title>
+<link>{$maccms.site_url|default=''}{$maccms.path}</link>
+<description>{$maccms.site_description}</description>
+<language>zh-cn</language>
+{maccms:vod num="50"  half="0" order="desc" by="time" id="vo" key="key"}
+<item><title><![CDATA[{$vo.vod_name} {$vo.vod_remarks}]]></title><link>{$maccms.site_url|default=''}{:mac_url_vod_detail($vo)}</link><description><![CDATA[{$vo.vod_blurb|mac_plain_text}]]></description><pubDate>{$vo.vod_time|date='D, d M Y H:i:s O',###}</pubDate></item>
+{/maccms:vod}
+</channel></rss>
